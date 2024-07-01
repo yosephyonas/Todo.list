@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">Todo.list</string>
+    <string name="task_name_hint">Task Name</string>
+    <string name="enter_new_task">Enter a new task</string>
+    <string name="enter_new_task_hint">New Task</string>
+    <string name="add_task">Add Task</string>
+    <string name="app_name">Todo List</string>
+    <string name="task_name">Task Name</string>
+    <string name="due_date">Due Date</string>
+    <string name="edit_task">Edit Task</string>
+    <string name="delete_task">Delete Task</string>
+    <string name="priority">Priority</string>
+    <string name="no_tasks_yet">No tasks yet</string>
+    <string name="select_due_date">Select Due Date</string>
 </resources>

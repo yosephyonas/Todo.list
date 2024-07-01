@@ -1,5 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="primaryColor">#6200EE</color>
+    <color name="primaryLightColor">#BB86FC</color>
+    <color name="primaryDarkColor">#3700B3</color>
+    <color name="secondaryColor">#03DAC5</color>
+    <color name="textColor">#FFFFFF</color>
+    <color name="backgroundColor">#FFFFFF</color> <!-- Lighten the background -->
+    <color name="taskBackgroundColor">#F5F5F5</color>
+    <color name="taskTextColor">#333333</color> <!-- Darken the text color for better contrast -->
+    <color name="checkboxColor">#03DAC5</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="background_color">#000000</color>
+    <color name="text_color">#FFFFFF</color>
+    <color name="green">#00FF00</color>
+    <color name="black">#00FF00</color>
+    <color name="yellow">#8B8000</color>
+    <color name="splash_background">#FFFFFF</color> <!-- Example color, use your desired color -->
+    <color name="red">#FF0000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#B0BEC5</color> <!-- Define a grey color -->
+
 </resources>
+
