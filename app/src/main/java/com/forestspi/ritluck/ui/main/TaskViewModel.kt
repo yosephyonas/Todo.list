@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.forestspi.ritluck.data.model.Task
-import com.forestspi.ritluck.data.repository.TaskRepository
+import com.forestspi.ritluck.data.respository.TaskRepository
 import kotlinx.coroutines.launch
 
 class TaskViewModel(private val repository: TaskRepository) : AndroidViewModel(Application()) {

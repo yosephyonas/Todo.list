@@ -2,22 +2,32 @@
     <color name="primaryColor">#6200EE</color>
     <color name="primaryLightColor">#BB86FC</color>
     <color name="primaryDarkColor">#3700B3</color>
+    <color name="light_grey">#f1f1f1</color>
+
     <color name="secondaryColor">#03DAC5</color>
-    <color name="textColor">#FFFFFF</color>
-    <color name="backgroundColor">#FFFFFF</color> <!-- Lighten the background -->
-    <color name="taskBackgroundColor">#F5F5F5</color>
-    <color name="taskTextColor">#333333</color> <!-- Darken the text color for better contrast -->
-    <color name="checkboxColor">#03DAC5</color>
-    <color name="colorAccent">#03DAC5</color>
-    <color name="background_color">#000000</color>
-    <color name="text_color">#FFFFFF</color>
-    <color name="green">#00FF00</color>
-    <color name="black">#00FF00</color>
-    <color name="yellow">#8B8000</color>
-    <color name="splash_background">#FFFFFF</color> <!-- Example color, use your desired color -->
-    <color name="red">#FF0000</color>
     <color name="white">#FFFFFF</color>
-    <color name="grey">#B0BEC5</color> <!-- Define a grey color -->
+    <color name="grey">#B0BEC5</color>
+    <color name="black">#000000</color>
+    <color name="workColor">#8BC34A</color> <!-- Example color for "Work" category -->
+    <color name="taskBackgroundColor">#F5F5F5</color> <!-- Background color for task cards -->
+    <color name="textColor">#000000</color> <!-- Replace with your desired text color -->
+    <color name="backgroundColor">#FFFFFF</color> <!-- Replace with your desired background color -->
+    <color name="splash_background">#FFFFFF</color> <!-- Replace with your splash background color -->
+    <color name="taskTextColor">#FFFFFF</color> <!-- Replace with your task text color -->
 
+        <color name="defaultColor">#CCCCCC</color>
+        <color name="ocean_blue">#1E88E5</color>
+        <color name="sportColor">#FF9800</color>
+        <color name="travelColor">#8E24AA</color>
+        <color name="green">#4CAF50</color>
+        <color name="healthColor">#E91E63</color>
+        <color name="educationColor">#3F51B5</color>
+        <color name="shoppingColor">#F44336</color>
+        <color name="entertainmentColor">#FFEB3B</color>
+        <color name="financeColor">#009688</color>
+        <color name="familyColor">#795548</color>
+        <color name="friendsColor">#9C27B0</color>
+        <color name="personalColor">#607D8B</color>
+        <color name="homeColor">#00BCD4</color>
+        <color name="officeColor">#CDDC39</color>
 </resources>
-

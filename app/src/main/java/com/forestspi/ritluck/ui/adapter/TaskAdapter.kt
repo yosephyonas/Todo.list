@@ -1,22 +1,22 @@
 package com.forestspi.ritluck.ui.adapter
 
-import android.graphics.Paint
+import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.forestspi.ritluck.R
 import com.forestspi.ritluck.data.model.Task
 import com.forestspi.ritluck.databinding.ItemTaskBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
 class TaskAdapter(
-    private val onEdit: (Task) -> Unit,
-    private val onDelete: (Task) -> Unit,
-    private val onToggleComplete: (Task) -> Unit
+    private val onDelete: (Task) -> Unit
 ) : ListAdapter<Task, TaskAdapter.TaskViewHolder>(TaskDiffCallback()), Filterable {
 
     private var originalList: List<Task> = listOf()
@@ -32,41 +32,42 @@ class TaskAdapter(
     }
 
     override fun submitList(list: List<Task>?) {
-        super.submitList(list)
-        list?.let {
-            originalList = it
-        }
+        originalList = list ?: listOf()
+        super.submitList(originalList)
     }
 
     inner class TaskViewHolder(private val binding: ItemTaskBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(task: Task) {
+            binding.taskTime.text = task.dueDate?.let {
+                SimpleDateFormat("HH:mm", Locale.US).format(Date(it))
+            }
             binding.taskName.text = task.name
-            binding.taskDueDate.text = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.US).format(Date(task.dueDate ?: 0))
+            binding.taskDescription.text = task.description
 
-            // Set initial state without triggering listener
-            binding.taskCompleted.setOnCheckedChangeListener(null)
-            binding.taskCompleted.isChecked = task.isCompleted
-            updateTaskNameStyle(task.isCompleted)
+            val background = binding.root.background as GradientDrawable
+            background.setColor(ContextCompat.getColor(binding.root.context, getCategoryColor(task.category)))
 
-            // Update state and style on single click
-            binding.taskCompleted.setOnCheckedChangeListener { _, isChecked ->
-                onToggleComplete(task.copy(isCompleted = isChecked))
-                updateTaskNameStyle(isChecked)
-            }
-
-            binding.editTask.setOnClickListener {
-                onEdit(task)
-            }
             binding.deleteTask.setOnClickListener {
                 onDelete(task)
             }
         }
 
-        private fun updateTaskNameStyle(isCompleted: Boolean) {
-            binding.taskName.paintFlags = if (isCompleted) {
-                binding.taskName.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-            } else {
-                binding.taskName.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+        private fun getCategoryColor(category: String): Int {
+            return when (category) {
+                "Sport" -> R.color.sportColor
+                "Food" -> R.color.ocean_blue
+                "Travel" -> R.color.travelColor
+                "Work" -> R.color.workColor
+                "Health" -> R.color.healthColor
+                "Education" -> R.color.educationColor
+                "Shopping" -> R.color.shoppingColor
+                "Entertainment" -> R.color.entertainmentColor
+                "Family" -> R.color.familyColor
+                "Friends" -> R.color.friendsColor
+                "Personal" -> R.color.personalColor
+                "Home" -> R.color.homeColor
+                "Office" -> R.color.officeColor
+                else -> R.color.defaultColor
             }
         }
     }
@@ -79,7 +80,8 @@ class TaskAdapter(
                 } else {
                     val filterPattern = constraint.toString().lowercase(Locale.getDefault()).trim()
                     originalList.filter {
-                        it.name.lowercase(Locale.getDefault()).contains(filterPattern)
+                        it.name.lowercase(Locale.getDefault()).contains(filterPattern) ||
+                                it.description.lowercase(Locale.getDefault()).contains(filterPattern)
                     }
                 }
                 val filterResults = FilterResults()
@@ -89,7 +91,7 @@ class TaskAdapter(
 
             @Suppress("UNCHECKED_CAST")
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                submitList(results?.values as List<Task>?)
+                super@TaskAdapter.submitList(results?.values as List<Task>)
             }
         }
     }

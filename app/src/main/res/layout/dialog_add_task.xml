@@ -1,58 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@drawable/rounded_corner"
-    android:layout_gravity="center_horizontal"
-    android:gravity="center_vertical">
+    android:layout_margin="16dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp">
 
-    <com.google.android.material.textfield.TextInputLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/task_name"
-        app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/colorAccent"
-        app:hintTextColor="@color/primaryColor">
+        android:layout_height="408dp"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etTaskName"
+        <!-- Title EditText -->
+        <EditText
+            android:id="@+id/titleTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/background_color"
-            android:minHeight="48dp"
-            android:padding="10dp"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="66dp"
+            android:background="@drawable/rounded_edit_text"
+            android:fontFamily="@font/poppins_bold"
+            android:hint="Title"
+            android:minHeight="50dp"
+            android:padding="8dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/priority"
-        app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/background_color"
-        app:hintTextColor="@color/primaryColor">
+        <!-- Content EditText -->
+        <EditText
+            android:id="@+id/contentTextView"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edit_text"
+            android:fontFamily="@font/poppins_bold"
+            android:hint="Content"
+            android:padding="8dp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
+        <!-- Date TextView -->
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:text="@string/select_due_date"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="12sp" />
+
+
+        <!-- Category Spinner -->
         <Spinner
-            android:id="@+id/spinnerPriority"
+            android:id="@+id/categorySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_medium" />
+
+        <!-- Action Buttons -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/priority_array"
-            android:minHeight="48dp"
-            android:padding="10dp"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="16dp"
+            android:gravity="end"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tvDueDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/select_due_date"
-        android:textColor="@color/background_color"
-        android:textSize="13sp"
-        android:minHeight="48dp"
-        android:padding="16dp"
-        android:background="?attr/selectableItemBackground"
-        android:onClick="showDatePicker"/>
-</LinearLayout>
+            <ImageView
+                android:id="@+id/checkImageView"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/check_icon" />
+
+            <ImageView
+                android:id="@+id/cancelImageView"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/x_icon" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

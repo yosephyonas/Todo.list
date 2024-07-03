@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="priority_array">
-        <item>Low</item>
-        <item>Medium</item>
-        <item>High</item>
+    <string-array name="category_array">
+        <item>All</item>
+        <item>Work</item>
+        <item>Personal</item>
     </string-array>
 </resources>

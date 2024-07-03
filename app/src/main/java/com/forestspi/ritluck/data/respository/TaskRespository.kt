@@ -1,4 +1,4 @@
-package com.forestspi.ritluck.data.repository
+package com.forestspi.ritluck.data.respository
 
 import androidx.lifecycle.LiveData
 import com.forestspi.ritluck.data.local.TaskDao

@@ -8,8 +8,8 @@
     android:gravity="center">
 
     <ImageView
-        android:layout_width="72dp"
-        android:layout_height="80dp"
+        android:layout_width="90dp"
+        android:layout_height="109dp"
         android:contentDescription="@string/app_name"
         android:src="@drawable/splash_screen_icon" />
 </LinearLayout>
